@@ -5,6 +5,7 @@ September 9, 2017
 '''
 import random as r
 import math as m
+import turtle as t
 
 class Coordinate:
     def __init__(self, x, y, in_circle):
@@ -13,10 +14,11 @@ class Coordinate:
         self.in_circle = in_circle
         
 def is_coord_in_circle(x, y, center_x, center_y, radius):
-    return ((m.pow(x - center_x, 2) + m.pow(x - center_y, 2)) < m.pow(radius, 2))
+    d = m.sqrt(m.pow(x - center_x, 2) + m.pow(y - center_y, 2))
+    return (d < radius)
         
 # Total amount of coordinates to be generated. (Constant)
-N_TOTAL = 10
+N_TOTAL = 10000
 
 # Radius of circle (Constant)
 RADIUS = 1
@@ -42,3 +44,23 @@ for i in range(0, N_TOTAL):
     in_circle = is_coord_in_circle(rand_x, rand_y, center_x, center_y, RADIUS)
     n_circle += 1 if in_circle else 0
     coordinates.append(Coordinate(rand_x, rand_y, in_circle))
+
+wn = t.Screen()
+bob = t.Turtle()
+bob.hideturtle()
+bob.speed("fastest")
+
+bob.pendown()
+for i in range(1, 5):
+    bob.forward(200)
+    bob.home()
+    bob.right(90 * i)
+
+bob.goto(0, -100)
+bob.circle(100)
+
+bob.penup()
+for point in coordinates:
+    dot_color = "blue" if point.in_circle else "red"
+    bob.goto(point.x * 100, point.y * 100)
+    bob.dot(3, dot_color)
