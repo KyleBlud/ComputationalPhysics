@@ -50,15 +50,18 @@ bob = t.Turtle()
 bob.hideturtle()
 bob.speed("fastest")
 
+# Draw the x and y axis
 bob.pendown()
 for i in range(1, 5):
     bob.forward(200)
     bob.home()
     bob.right(90 * i)
 
+# Draw the inscribed circle
 bob.goto(0, -100)
 bob.circle(100)
 
+# Plot each point (scaled to 100)
 bob.penup()
 for point in coordinates:
     dot_color = "blue" if point.in_circle else "red"
