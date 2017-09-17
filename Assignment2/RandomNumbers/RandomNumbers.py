@@ -6,6 +6,7 @@ September 9, 2017
 import random as r
 import math as m
 import turtle as t
+import matplotlib.pyplot as plt
 
 class Coordinate:
     def __init__(self, x, y, in_circle):
@@ -16,6 +17,9 @@ class Coordinate:
 def is_coord_in_circle(x, y, center_x, center_y, radius):
     d = m.sqrt(m.pow(x - center_x, 2) + m.pow(y - center_y, 2))
     return (d < radius)
+
+def calculate_ratio(n_circle, n):
+    return ((4 * n_circle) / n)
         
 # Total amount of coordinates to be generated. (Constant)
 N_TOTAL = 10000
@@ -38,12 +42,31 @@ in_circle = False
 center_x = 0
 center_y = 0
 
-for i in range(0, N_TOTAL):
+# Store the amount of points in the circle at a given total to be graphed.
+# (n_total_vals[n], n_circle_vals[n])
+n_circle_vals = []
+n_total_vals = []
+
+for i in range(1, 10**6 + 1):
     rand_x = r.uniform(-1, 1)
     rand_y = r.uniform(-1, 1)
     in_circle = is_coord_in_circle(rand_x, rand_y, center_x, center_y, RADIUS)
     n_circle += 1 if in_circle else 0
-    coordinates.append(Coordinate(rand_x, rand_y, in_circle))
+    if (i <= N_TOTAL):
+        coordinates.append(Coordinate(rand_x, rand_y, in_circle))
+    if (i % 100 == 0 or i == 10):
+        n_circle_vals.append(calculate_ratio(n_circle, i))
+        n_total_vals.append(i)
+
+plt.style.use('dark_background')
+plt.plot(n_total_vals, n_circle_vals)
+plt.axhline(y = 3.14, label = "Expected ratio", color = "red", linestyle = "--")
+plt.title("Ratio of Randomly Generated Points Inside a Circle")
+plt.xlabel("Number of Points")
+plt.ylabel("Ratio of Points in Circle")
+plt.xscale("log")
+plt.legend()
+plt.show()
 
 wn = t.Screen()
 bob = t.Turtle()
