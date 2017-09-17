@@ -1,13 +1,11 @@
 # Computational Physics
 #### Assignment Descriptions:
-- Assignment 2
+- [Assignment 2](#assignment-2)
   - [Random Numbers](#random-numbers)
   - [Radioactive Decay Chain](#radioactive-decay-chain)
-  - Monte Carlo Integration
-  - Simpsons Rule
-  - Brownian Motion
-
-## Random Numbers
+  - [Brownian Motion](#brownian-motion)
+## Assignment 2
+### Random Numbers
 A) Generate samples of (x, y) coordinates that fill a square uniformly such that x & y values fall in a range between -1 and +1. Be able to specify the number of xy-pairs to be generated, N_total.
 
 B) Count the number of points in your sample that happen to fall inside the inscribed circle centered at the origin with a radius = 1, N_circle. Calculate the ratio: Ratio = (4(N_circle))/N_total
@@ -16,7 +14,7 @@ C) Plot the sampled data over the entire range of the square. Please inscribe th
 
 D) Plot the ratio you calculated as a function of N_total. Vary N_total from 10 to 10^6. Does this ratio converge to a finite value? What should this value be? Does this make sense? Draw a dashed horizontal line denoting the expected ratio value.
 
-## Radioactive Decay Chain
+### Radioactive Decay Chain
 The isotope 213Bi decays to stable 209Bi via one of two different routes, with probabilities
 and half-lives thus:
 
@@ -38,6 +36,11 @@ Count the numbers that decay by each route and add and subtract accordingly.
 Note that you have to work up the chain from the bottom like this, not down from the
 top, to avoid inadvertently making the same atom decay twice on a single step.
 
-Keep track of the number of atoms of each of the four isotopes at all times for 20 000
+Keep track of the number of atoms of each of the four isotopes at all times for 20,000
 seconds and make a single graph showing the four numbers as a function of time on the
 same axes.
+
+### Brownian Motion
+Brownian motion is the motion of a particle, such as smoke or dust particle, in a gas, as it is buffeted by random collisions with gas molecules. Make a simple computer simulation of such a particle (in two dimensions) as follows. The particle is confined to a square grid or lattice L x L squares on a side, so that its position can be represented by two integers i, j = 0 . . . L - 1. It starts in the middle of the grid. On each step of the simulation, choose a random direction - up, down, left, or right - and move the particle one step in that direction. The particle is doing a "random walk." The particle is not allowed to move outside the square of the lattice - if it tries to do so, choose a new random direction to move in.
+
+Write a program to do this calculation from a million steps of the random walk with L = 101 and make an animation on the screen of the position of the particle. (We choose an odd length for the side of the square so that there is one lattice site exactly in the center.)
