@@ -1,7 +1,7 @@
 '''
-Kyle Bludworth
-Physics 420
-September 9, 2017
+Author: Kyle Bludworth
+Course: Physics 420
+Creation date: September 16, 2017
 '''
 import random as r
 import turtle as t

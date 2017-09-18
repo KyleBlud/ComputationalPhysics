@@ -36,4 +36,3 @@ while (order != "quit"):
     print("Difference: " + str(abs(actual - estimation)))
     legendre_roots.clear()
     order = input("Which order? 2, 4, 8, 16, 32 or \"quit\"? ")
-    
