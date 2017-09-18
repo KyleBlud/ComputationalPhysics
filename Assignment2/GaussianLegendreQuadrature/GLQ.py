@@ -8,15 +8,14 @@ import urllib.request
 import numpy as np
 
 def f(x):
-    return np.arctan(np.sqrt(x**2 + 2))/(np.sqrt(x**2 + 2)*(x**2 + 1))
+    return np.arctan(np.sqrt(x**2 + 2))/(np.sqrt(x**2 + 2) * (x**2 + 1))
 
 sauce = urllib.request.urlopen("https://pomax.github.io/bezierinfo/legendre-gauss.html").read()
 soup = bs.BeautifulSoup(sauce, "lxml")
 
-weights = []
-nodes = []
+a, b = 0, 1
+legendre_roots = []
 actual = (5 * np.pi**2)/96
-counter = 1
 
 order = input("Which order? 2, 4, 8, 16, 32 or \"quit\"? ")
 
@@ -26,18 +25,15 @@ while (order != "quit"):
     for row in rows:
         cells = row.find_all("td")
         cells.pop(0)
-        for cell in cells:
-            cell = str(cell).replace("<td>", "").replace("</td>", "")
-            if (counter % 2 == 0):
-                nodes.append(float(cell))
-            else:
-                weights.append(float(cell))
-            counter += 1
-    estimate = 0
-    for i in range(int(order)):
-        estimate += weights[i] * f(nodes[i])
-    print(str(estimate))
-    print(str(actual))
-    weights.clear()
-    nodes.clear()
+        cells[0] = float(str(cells[0]).replace("<td>", "").replace("</td>", ""))
+        cells[1] = float(str(cells[1]).replace("<td>", "").replace("</td>", ""))
+        legendre_roots.append((cells[0], cells[1]))
+    estimation = 0
+    for weight, node in legendre_roots:
+        estimation += weight * ((0.5 * (b - a)) * f(node))
+    print("Estimation: " + str(estimation))
+    print("Actual: " + str(actual))
+    print("Difference: " + str(abs(actual - estimation)))
+    legendre_roots.clear()
     order = input("Which order? 2, 4, 8, 16, 32 or \"quit\"? ")
+    
