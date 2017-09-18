@@ -4,6 +4,7 @@
   - [Random Numbers](#random-numbers)
   - [Radioactive Decay Chain](#radioactive-decay-chain)
   - [Brownian Motion](#brownian-motion)
+  - [Gauss Quadrature](#gauss-quadrature)
 ## Assignment 2
 ### Random Numbers
 A) Generate samples of (x, y) coordinates that fill a square uniformly such that x & y values fall in a range between -1 and +1. Be able to specify the number of xy-pairs to be generated, N_total.
@@ -44,3 +45,9 @@ same axes.
 Brownian motion is the motion of a particle, such as smoke or dust particle, in a gas, as it is buffeted by random collisions with gas molecules. Make a simple computer simulation of such a particle (in two dimensions) as follows. The particle is confined to a square grid or lattice L x L squares on a side, so that its position can be represented by two integers i, j = 0 . . . L - 1. It starts in the middle of the grid. On each step of the simulation, choose a random direction - up, down, left, or right - and move the particle one step in that direction. The particle is doing a "random walk." The particle is not allowed to move outside the square of the lattice - if it tries to do so, choose a new random direction to move in.
 
 Write a program to do this calculation from a million steps of the random walk with L = 101 and make an animation on the screen of the position of the particle. (We choose an odd length for the side of the square so that there is one lattice site exactly in the center.)
+
+### Gauss Quadrature
+Evaluate the	integral using	Gauss-Legendre Quadrature:
+
+at	various	orders,	from	N=2,	4,	8,	16,	32.		Calculate	the	absolute	difference	between	the	
+integral	estimate	for	each	N	with	the	true	answer,	I = 5(pi)^2 / 96.	
