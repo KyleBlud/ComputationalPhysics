@@ -16,6 +16,7 @@ jim = t.Turtle()
 jim.hideturtle()
 jim.speed("fastest")
 
+# Change back to 1's for the original problem
 directions = [(5, 0), (-5, 0), (0, 5), (0, -5)]
 
 x = 0
