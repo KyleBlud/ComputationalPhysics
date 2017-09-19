@@ -44,7 +44,7 @@ center_y = 0
 
 # Store the amount of points in the circle at a given total to be graphed.
 # (n_total_vals[n], n_circle_vals[n])
-n_circle_vals = []
+ratio_vals = []
 n_total_vals = []
 
 for i in range(1, 10**6 + 1):
@@ -55,11 +55,11 @@ for i in range(1, 10**6 + 1):
     if (i <= N_TOTAL):
         coordinates.append(Coordinate(rand_x, rand_y, in_circle))
     if (i % 100 == 0 or i == 10):
-        n_circle_vals.append(calculate_ratio(n_circle, i))
+        ratio_vals.append(calculate_ratio(n_circle, i))
         n_total_vals.append(i)
 
 plt.style.use('dark_background')
-plt.plot(n_total_vals, n_circle_vals)
+plt.plot(n_total_vals, ratio_vals)
 plt.axhline(y = 3.14, label = "Expected ratio", color = "red", linestyle = "--")
 plt.title("Ratio of Randomly Generated Points Inside a Circle")
 plt.xlabel("Number of Points")
