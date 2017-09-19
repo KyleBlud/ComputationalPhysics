@@ -10,6 +10,7 @@ import numpy as np
 def f(x):
     return np.arctan(np.sqrt(x**2 + 2))/(np.sqrt(x**2 + 2) * (x**2 + 1))
 
+# Web scrape weights and node for each order
 sauce = urllib.request.urlopen("https://pomax.github.io/bezierinfo/legendre-gauss.html").read()
 soup = bs.BeautifulSoup(sauce, "lxml")
 
@@ -20,6 +21,7 @@ actual = (5 * np.pi**2)/96
 order = input("Which order? 2, 4, 8, 16, 32 or \"quit\"? ")
 
 while (order != "quit"):
+    # Traverse through the HTML DOM tree to find weights and nodes
     div = soup.find("div", id = "n" + order)
     rows = div.find("table", class_ = "tbl").find("tbody").find_all("tr")
     for row in rows:
