@@ -2,6 +2,9 @@
 Author: Kyle Bludworth
 Course: Physics 420
 Creation date: September 19, 2017
+
+Note: 1,000,000 takes a very long time to compile, that's why it's set to 
+      100,000.
 '''
 import numpy as np
 import random as r
