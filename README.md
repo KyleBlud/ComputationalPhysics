@@ -3,6 +3,8 @@
 - [Assignment 2](#assignment-2)
   - [Random Numbers](#random-numbers)
   - [Radioactive Decay Chain](#radioactive-decay-chain)
+  - [Monte Carlo Integration](#monte-carlo-integration)
+  - [Simpsons Rule](#simpsons-rule)
   - [Brownian Motion](#brownian-motion)
   - [Gauss Quadrature](#gauss-quadrature)
 ## Assignment 2
@@ -40,6 +42,33 @@ top, to avoid inadvertently making the same atom decay twice on a single step.
 Keep track of the number of atoms of each of the four isotopes at all times for 20,000
 seconds and make a single graph showing the four numbers as a function of time on the
 same axes.
+
+### Monte Carlo Integration
+
+Monte Carlo integration: Calculate a value for the integral:
+___
+using	the	importance	sampling	technique	we	discussed	in	class:
+___
+A) Calculate	a	value	for	the	integral	using	a	uniform	probability	distribution,	____,	for	an	arbitrary	number	of	samplings,	N.
+
+B) Show that the probability distribution p(x) from which the sample points should be drawn is given by:
+___
+
+and derive a transformation formula for generating random numbers between zero and one from this distribution. Be careful what you define as f(x) in the integrand.
+
+C) Make a plot of the integral values as calculated from a. and b. as a function of N, ranging from 10 to 1000000. A log scale for the x-axis may be useful. Look up the true value for this integral and show it as a dashed horizontal line. Use 3 different colors for each line and label them.
+
+### Simpsons Rule
+
+A) Using Simpson’s 1/3 rule, write a program to calculate an approximation for the
+integral:
+where a is a variable number for this problem. Be able to input the number of integrand intervals, N. 
+
+B) For a = 0, run your program for N = 1, 10, 100, 1000, 10000, and 100000. What is the difference between these values for the integral and the actual value for the integral? Can you write down an expression describing this difference?
+
+C) For a = 5, run your program for N = 1, 10, 100, 1000, 10000, and 100000. What is the difference between these values for the integral and the actual value for the integral? Can you write down an expression describing this difference?
+
+D) For N = 100000, run your program for a = 0.01, 0.05, 0.1, 0.5, 1.0, 5.0 and 10.0. What is the difference between these values for the integral and the actual value for the integral? Can you write down an expression describing this difference?
 
 ### Brownian Motion
 Brownian motion is the motion of a particle, such as smoke or dust particle, in a gas, as it is buffeted by random collisions with gas molecules. Make a simple computer simulation of such a particle (in two dimensions) as follows. The particle is confined to a square grid or lattice L x L squares on a side, so that its position can be represented by two integers i, j = 0 . . . L - 1. It starts in the middle of the grid. On each step of the simulation, choose a random direction - up, down, left, or right - and move the particle one step in that direction. The particle is doing a "random walk." The particle is not allowed to move outside the square of the lattice - if it tries to do so, choose a new random direction to move in.
