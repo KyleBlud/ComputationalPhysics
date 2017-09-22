@@ -56,3 +56,21 @@ for x1, x2 in bracket_x_vals:
     print("a = " + str(a) + "\nb = " + str(b) + "\nRoot = " + str(roots[i]))
     print("Iterations: " + str(iterations) + "\n")
     i += 1
+
+# Stores recursive values of x
+x = []
+iterations = 0
+i = 0
+
+print("Secant Method:")
+for x0, x1 in bracket_x_vals:
+    x.append(x0)
+    x.append(x1)
+    n = len(x)
+    while (abs(x[n - 1] - x[n - 2]) > tolerance):
+        x.append(((x[n-2]*f(x[n-1]))-(x[n-1]*f(x[n-2])))/(f(x[n-1])-f(x[n-2])))
+        n = len(x)
+        iterations += 1
+    print("Approximation: " + str(x[n - 1]) + "\nRoot = " + str(roots[i]))
+    print("Iterations = " + str(iterations) + "\n")
+    i += 1
