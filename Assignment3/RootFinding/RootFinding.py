@@ -17,15 +17,15 @@ roots = np.roots(coefficients)
 roots.sort()
 
 # Return evenly spaced numbers over [-3, 3]
-x = np.linspace(-3, 3, 100)
+x_ = np.linspace(-3, 3, 100)
 
 # p(x) is returned for each element of x
-y = np.polyval(coefficients, x)
+y_ = np.polyval(coefficients, x_)
 
 # Plotting the function such that all roots are visible
 plt.axhline(y = 0, color = 'black')
 plt.axvline(x = 0, color = 'black')
-plt.plot(x, y)
+plt.plot(x_, y_)
 for i in range(len(roots)):
     plt.plot([roots[i]], [0], marker = 'o', color = 'red')
 plt.title(r'$f(x)=x^{3}-5x+3$')
@@ -73,4 +73,5 @@ for x0, x1 in bracket_x_vals:
         iterations += 1
     print("Approximation: " + str(x[n - 1]) + "\nRoot = " + str(roots[i]))
     print("Iterations = " + str(iterations) + "\n")
+    x.clear()
     i += 1
