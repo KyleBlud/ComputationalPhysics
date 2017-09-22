@@ -36,19 +36,23 @@ plt.show()
 
 # Bracketing x values for each root
 bracket_x_vals = [(-3, -2), (0, 1), (1.5, 2)]
-# 5 digit accuracy
+# 7 digit accuracy
 tolerance = 10**(-7)
+# Number of iterations to converge to the predefined precision
+iterations = 0
+i = 0
 
 print("Bracketing method:")
-for i in range(len(roots)):
-    a = bracket_x_vals[i][0]
-    b = bracket_x_vals[i][1]
+for x1, x2 in bracket_x_vals:
+    a = x1
+    b = x2
     while (abs(a - b) > tolerance):
         c = (a + b) / 2
         if (np.sign(f(c)) == np.sign(f(a))):
             a = c
         if (np.sign(f(c)) == np.sign(f(b))):
             b = c
-    print("a = " + str(a) + ", b = " + str(b) + ", root = " + str(roots[i]))
-    
-    
+        iterations += 1
+    print("a = " + str(a) + "\nb = " + str(b) + "\nRoot = " + str(roots[i]))
+    print("Iterations: " + str(iterations) + "\n")
+    i += 1
