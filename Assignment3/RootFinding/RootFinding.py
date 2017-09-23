@@ -55,6 +55,7 @@ for x1, x2 in bracket_x_vals:
         iterations += 1
     print("a = " + str(a) + "\nb = " + str(b) + "\nRoot = " + str(roots[i]))
     print("Iterations: " + str(iterations) + "\n")
+    iterations = 0
     i += 1
 
 # Stores recursive values of x
@@ -74,4 +75,5 @@ for x0, x1 in bracket_x_vals:
     print("Approximation: " + str(x[n - 1]) + "\nRoot = " + str(roots[i]))
     print("Iterations = " + str(iterations) + "\n")
     x.clear()
+    iterations = 0
     i += 1
