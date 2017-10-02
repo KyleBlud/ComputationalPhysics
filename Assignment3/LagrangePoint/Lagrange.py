@@ -23,7 +23,7 @@ x_n = 0
 # Start off at 1 since x_n is defined outside of while loop
 iterations = 1
 
-# Approximate a root using Newtons Method for each guess
+# Approximate a root using Newtons Method
 x_0 = guess
 print("Initial guess: {:.2e}".format(x_0))
 x_n = newton(x_0)
