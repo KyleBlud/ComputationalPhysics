@@ -5,10 +5,8 @@ Creation date: October 8, 2017
 '''
 import math as m
 from random import uniform
-from numpy.random import random_sample
 from numpy.random import normal
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 
 # Each body has a position and velocity vector and a mass
 class Body:
@@ -17,17 +15,13 @@ class Body:
         self.v = v
         self.mass = mass
 
-# Returns an array of size N with each element distributed uniformly [a, b)
-def randrange(N, a, b):
-    return (b - a) * random_sample(N) + a
-
 # Returns if a point in space is within a sphere with a given radius
 def point_in_sphere(x, y, z, radius):
     d = m.sqrt(x**2 + y**2 + z**2)
     return (d < radius)
 
 # Number of bodies in simulation
-N = 1000
+N = 100
 # 20 cm = 0.2 meters
 RADIUS = 0.2
 # 1.5 cm/s = 0.015 m/s
@@ -81,8 +75,6 @@ r_ax.set_xlim(-RADIUS, RADIUS)
 r_ax.set_ylim(-RADIUS, RADIUS)
 r_ax.set_zlim(-RADIUS, RADIUS)
 r_fig.show()
-
-print(len(x_vals))
 
 v_ax.scatter(u_vals, v_vals, w_vals, marker = 'o', color = 'blue')
 v_ax.set_xlabel("u")
